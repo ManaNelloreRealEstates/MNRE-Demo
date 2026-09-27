@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#1A1F2B"/>
+  <rect x="80" y="80" width="1040" height="640" rx="28" fill="#0B0F14" stroke="#FBD34D" stroke-width="4"/>
+  <path d="M180 560 L360 390 L470 500 L620 340 L860 560 Z" fill="#2C2C2C"/>
+  <path d="M520 560 L700 420 L980 560 Z" fill="#D48806"/>
+  <circle cx="860" cy="250" r="54" fill="#F6A623"/>
+  <text x="600" y="660" text-anchor="middle" fill="#FFF6D5" font-family="Georgia, serif" font-size="36">ManaNellore sample photo</text>
+</svg>
