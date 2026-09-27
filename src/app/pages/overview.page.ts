@@ -6,6 +6,7 @@ import { filter, map, startWith } from 'rxjs/operators';
 import { AuthService } from '../core/auth.service';
 import { DataStoreService } from '../core/data-store.service';
 import { localISODate } from '../core/format';
+import { ACTOR_GUIDES } from '../core/guide';
 import { LEAD_STATUS_LABEL, ROLE_LABEL } from '../core/labels';
 import { UserRole } from '../core/models';
 import { ROLE_NAV } from '../core/nav';
@@ -27,6 +28,17 @@ import { InrPipe } from '../shared/ui';
           <a class="btn btn-primary" [routerLink]="primary().path">{{ primary().label }}</a>
         </div>
         <p class="hint">{{ hint() }}</p>
+        @if (guide(); as actor) {
+          <section class="panel flow-card">
+            <h3>Your flow</h3>
+            <p class="cred"><span>{{ actor.email }}</span><span>Password {{ actor.password }}</span></p>
+            <ol>
+              @for (step of actor.steps; track step) {
+                <li>{{ step }}</li>
+              }
+            </ol>
+          </section>
+        }
         <div class="stat-grid">
           @for (stat of stats(); track stat.label) {
             <article class="stat"><strong>{{ stat.value }}</strong><span>{{ stat.label }}</span></article>
@@ -73,6 +85,7 @@ export class OverviewPage {
   private readonly store = inject(DataStoreService);
   private readonly router = inject(Router);
   readonly roleLabel = ROLE_LABEL;
+  readonly guide = computed(() => ACTOR_GUIDES.find((actor) => actor.role === this.workspace()));
   readonly leadLabel = LEAD_STATUS_LABEL;
   readonly user = toSignal(this.auth.currentUser$, { initialValue: this.auth.getCurrentUser() });
   private readonly state = toSignal(this.store.state$, { initialValue: this.store.snapshot });

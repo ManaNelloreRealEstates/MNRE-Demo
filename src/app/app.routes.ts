@@ -4,6 +4,7 @@ import { DashboardLayout } from './layout/dashboard-layout';
 import { PublicLayout } from './layout/public-layout';
 import { LoginPage, RegisterPage } from './pages/auth.page';
 import { AboutPage, ContactPage, NotFoundPage, SellPage } from './pages/content.page';
+import { GuidePage } from './pages/guide.page';
 import { AdminListingsPage, AdminProjectsPage, AdminPropertiesPage, AdminReportsPage, AdminSettingsPage } from './pages/admin.page';
 import { BrowsePage } from './pages/browse.page';
 import { BuyPage } from './pages/buy.page';
@@ -38,6 +39,7 @@ export const routes: Routes = [
       { path: 'project/:id', component: ProjectDetailPage },
       { path: 'sell', component: SellPage },
       { path: 'about', component: AboutPage },
+      { path: 'guide', component: GuidePage },
       { path: 'contact', component: ContactPage },
       { path: 'login', component: LoginPage, canActivate: [guestGuard] },
       { path: 'register', component: RegisterPage, canActivate: [guestGuard] },

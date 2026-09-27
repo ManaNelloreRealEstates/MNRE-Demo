@@ -20,6 +20,7 @@ import { SearchPanel } from '../shared/search-panel';
           <h1>Find a plot or house in Nellore.</h1>
           <hr class="gold-line" />
           <p class="lede">ManaNelloreRealEstate brings owners, associates and builders onto one local desk, from the first search to the signed deal.</p>
+          <p><a class="btn btn-primary btn-sm" routerLink="/guide">See each actor’s flow</a></p>
         </div>
         <app-search-panel layout="hero" />
       </div>

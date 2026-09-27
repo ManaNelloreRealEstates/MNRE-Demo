@@ -21,6 +21,7 @@ import { ConfirmService } from '../core/confirm.service';
             <p class="eyebrow">Demo login</p>
             <h1>Choose an actor and walk the business.</h1>
             <p>Every demo account uses the password <strong>{{ password }}</strong>. There is no OTP or live authentication in this version.</p>
+            <p><a routerLink="/guide">Read the full flow for each actor</a></p>
             <div class="actor-grid">
               @for (account of accounts; track account.email) {
                 <button type="button" class="actor-card" (click)="quick(account.email)" [disabled]="busy()">

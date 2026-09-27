@@ -12,6 +12,9 @@ import { BOTTOM_NAV, ROLE_NAV } from '../core/nav';
   imports: [RouterOutlet, RouterLink, RouterLinkActive],
   template: `
     <div class="dash">
+      @if (menuOpen()) {
+        <button type="button" class="sidebar-back" aria-label="Close menu" (click)="menuOpen.set(false)"></button>
+      }
       <aside class="sidebar" [class.open]="menuOpen()">
         <a class="brand" routerLink="/">
           <img src="logo.jpg" alt="ManaNelloreRealEstate logo" />

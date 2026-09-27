@@ -25,15 +25,27 @@ import { LOCATIONS } from '../core/labels';
           <a routerLink="/projects" routerLinkActive="active">Projects</a>
           <a routerLink="/sell" routerLinkActive="active">Sell / List</a>
           <a routerLink="/about" routerLinkActive="active">About</a>
+          <a routerLink="/guide" routerLinkActive="active">Demo guide</a>
           <a routerLink="/contact" routerLinkActive="active">Contact</a>
+          <div class="nav-mobile-account">
+            @if (user(); as current) {
+              <a class="btn btn-primary" [routerLink]="homeFor(current.role)">Dashboard</a>
+              <button type="button" class="btn btn-ghost" (click)="logout()">Logout</button>
+            } @else {
+              <a class="btn btn-primary" routerLink="/login">Login</a>
+              <a class="btn btn-ghost" routerLink="/register">Register</a>
+            }
+          </div>
         </nav>
         <div class="header-actions">
           @if (user(); as current) {
-            <a class="btn btn-ghost btn-sm" [routerLink]="homeFor(current.role)">Dashboard</a>
-            <button type="button" class="btn btn-primary btn-sm" (click)="logout()">Logout</button>
+            <a class="btn btn-ghost btn-sm desktop-only" [routerLink]="homeFor(current.role)">Dashboard</a>
+            <button type="button" class="btn btn-primary btn-sm desktop-only" (click)="logout()">Logout</button>
+            <a class="btn btn-primary btn-sm mobile-only" [routerLink]="homeFor(current.role)">Dashboard</a>
           } @else {
-            <a class="btn btn-ghost btn-sm" routerLink="/login">Login</a>
-            <a class="btn btn-primary btn-sm" routerLink="/register">Register</a>
+            <a class="btn btn-ghost btn-sm desktop-only" routerLink="/login">Login</a>
+            <a class="btn btn-primary btn-sm desktop-only" routerLink="/register">Register</a>
+            <a class="btn btn-primary btn-sm mobile-only" routerLink="/login">Login</a>
           }
         </div>
       </div>
@@ -56,6 +68,7 @@ import { LOCATIONS } from '../core/labels';
           <a routerLink="/buy" [queryParams]="{ kind: 'house' }">Houses</a>
           <a routerLink="/projects">Projects</a>
           <a routerLink="/sell">List a property</a>
+          <a routerLink="/guide">Demo guide</a>
         </div>
         <div>
           <h3>Locations</h3>
